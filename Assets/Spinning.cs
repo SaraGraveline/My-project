@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotator : MonoBehaviour
+public class Spinning : MonoBehaviour
 {
     public float rotationSpeed = 0.3f;
-    public PickerUpper player;
 
     private bool rotate;
 
@@ -31,20 +30,9 @@ public class rotator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player != null)
-
-        {
-            if (rotate && player.count >= 3)
-
-            {
-                this.GetComponent<Transform>().Rotate(0, rotationSpeed, 0);
-            }
-            else
-            {
-                this.GetComponent<Transform>().Rotate(0, rotationSpeed, 0);
-            }
-
+        { 
+            this.GetComponent<Transform>().Rotate(0, rotationSpeed, 0);
         }
+        
     }
 }
-
