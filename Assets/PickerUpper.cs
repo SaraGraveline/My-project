@@ -6,6 +6,8 @@ public class PickerUpper : MonoBehaviour
 {
     public int count = 0;
     // Start is called before the first frame update
+
+    public GameObject particlePrefeb;
     void Start()
     {
         
@@ -21,12 +23,15 @@ public class PickerUpper : MonoBehaviour
     {
         if (collision.collider.gameObject.CompareTag("pickup"))
         {
+            GameObject.Instantiate(particlePrefeb, collision.collider.gameObject.transform.position, Quaternion.identity);
+
             GameObject.Destroy(collision.collider.gameObject);
 
             count = count + 1;
 
 
             this.GetComponent<AudioSource>().Play();
+
             Debug.Log("Pickup Count: " + count);
         }
     }
